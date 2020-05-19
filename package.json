@@ -1,0 +1,30 @@
+{
+  "name": "@signalk/client-ts",
+  "version": "1.0.0",
+  "description": "Signal K Typescript client",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
+  "author": "Teppo Kurki",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "typescript": "^3.9.2",
+    "ts-node": "^8.10.1",
+    "@types/isomorphic-fetch": "0.0.35",
+    "@types/node-fetch": "^2.5.7",
+    "@types/tough-cookie": "^4.0.0",
+    "@types/ws": "^7.2.4"
+  },
+  "dependencies": {
+    "es6-promise": "^4.2.8",
+    "eventemitter3": "^4.0.4",
+    "fetch-cookie": "^0.8.0",
+    "isomorphic-fetch": "^2.2.1",
+    "isomorphic-ws": "^4.0.1",
+    "tough-cookie": "^4.0.0",
+    "ws": "^7.3.0"
+  }
+}
