@@ -12,4 +12,4 @@ client
   .then(() => {
     console.log("connected");
   })
-  .catch((e) => console.error(e));
+  .catch((e) => console.error(e.message));

@@ -9,7 +9,7 @@ client
     console.log(loginResult);
     return fetchSomeStuff(client);
   })
-  .catch((err) => console.error(err));
+  .catch((err) => console.error(err.message));
 
 const fetchSomeStuff = (client: Client) =>
   client
