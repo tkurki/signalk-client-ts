@@ -1,4 +1,4 @@
-const isomorphicFetch = require("isomorphic-fetch");
+import isomorphicFetch from "isomorphic-fetch";
 import { Response } from "node-fetch";
 import tough from "tough-cookie";
 import fetchCookie from "fetch-cookie";
@@ -127,7 +127,7 @@ export class Client extends EventEmitter {
   }
 
   private getWsUrl(rootData: RootData) {
-    var result = undefined
+    let result = undefined
     try {
       result = rootData.endpoints["v1"]["signalk-ws"];
     } catch(error) {}
@@ -180,11 +180,11 @@ export class Client extends EventEmitter {
       });
   }
 
-  getVesselsSelfMeta(path: string): Promise<object> {
+  getVesselsSelfMeta(path: string): Promise<any> {
     return this.getVesselsSelfPath(path, "/meta");
   }
 
-  getVesselsSelfPath(path: string, postPath = ""): Promise<object> {
+  getVesselsSelfPath(path: string, postPath = ""): Promise<any> {
     const headers: any = {timeout: 5000};
     if (this.useToken && this._token) {
       headers.Authorization = `JWT ${this._token}`;
@@ -212,8 +212,9 @@ export class Client extends EventEmitter {
     this.emit("connecting");
     this.connectAttemptCount++;
     return this.rootData().then((rootData) => {
+      let wsUrl
       try {
-        var wsUrl = this.getWsUrl(rootData)
+        wsUrl = this.getWsUrl(rootData)
       } catch(error) {
         if (this.doReconnect(error)) {
           return Promise.resolve();
